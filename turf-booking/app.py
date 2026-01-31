@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, request, session, redirect
 import sqlite3
 from datetime import datetime, timedelta, date
 import bcrypt
+from flask import Flask
 
 app = Flask(__name__)
 app.secret_key = "super-secret-admin-key"
@@ -417,3 +418,4 @@ def change_password():
 # ================= RUN =================
 if __name__ == "__main__":
     app.run(debug=True)
+
