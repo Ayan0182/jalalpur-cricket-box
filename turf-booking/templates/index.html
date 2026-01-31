@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Slot - Jalalpur Cricket Box</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- ================= STICKY NAVBAR ================= -->
+<header class="booking-navbar">
+  <div class="nav-left">
+    <span class="brand">🏏 Jalalpur Cricket Box</span>
+  </div>
+
+  <div class="nav-right">
+    <a href="/" class="back-link">← Back to courts</a>
+    <a href="/admin/login" class="admin-link">Admin</a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu">
+  <a href="/">🏠 Home</a>
+</div>
+
+<!-- ================= PAGE CONTENT ================= -->
+<div class="page-content">
+
+  <!-- ================= SECTION 0 : VENUE DETAILS ================= -->
+  <section class="card venue-info">
+    <h2 class="venue-title">Jalalpur Cricket Box</h2>
+
+    <p class="venue-meta">
+      <b>
+        📍 Location – Jalalpur Cricket Box, Dholka <br>
+        ⏱︎ 60 min slots • 24 Hours Open
+      </b>
+    </p>
+
+    <p class="venue-desc">
+      Experience fast-paced cricket at GK Box Cricket, the perfect destination for fun,
+      fitness, and friendly competition. Our premium box cricket facility is designed for
+      players of all skill levels, offering a safe, energetic, and well-maintained playing
+      environment. <br><br>
+      24 Hour Open • Quick & Easy Online Booking – Reserve your slot in seconds •
+      Play comfortably day or night.
+    </p>
+  </section>
+
+  <!-- ================= COMFORTS STRIP ================= -->
+  <section class="comforts-strip">
+    <div>📷 CCTV Surveillance</div>
+    <div>📱 Easy Booking</div>
+    <div>💡 Flood Lights</div>
+    <div>🚗 Free Parking</div>
+  </section>
+
+  <!-- ================= SECTION 1 : DATE ================= -->
+  <section class="card">
+    <h3 class="section-title">📅 Select Date</h3>
+    <div id="dates" class="dates"></div>
+  </section>
+
+  <!-- ================= SECTION 2 : TIME SLOTS ================= -->
+  <section class="card">
+    <div class="card-header">
+      <h3 class="section-title">
+        ⏱ Time Slots
+        <span id="selected-date-label"
+          style="font-weight:400;font-size:14px;color:#6b7280;">
+        </span>
+      </h3>
+
+      <div id="slotCount" class="slot-count">
+        Available: 0 | Booked: 0
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><b class="dot green"></b> Available</span>
+      <span><b class="dot red"></b> Booked</span>
+    </div>
+
+    <div id="slots" class="slots">Loading slots…</div>
+  </section>
+
+  <!-- ================= SECTION 3 : SUMMARY + FORM ================= -->
+  <section class="card">
+
+    <div id="selected-slot-summary" class="summary"></div>
+
+    <div id="booking-form" class="booking-form">
+      <h3>Confirm Booking</h3>
+
+      <input id="name" placeholder="Your Name">
+
+      <input id="phone" placeholder="Phone Number" maxlength="10">
+      <div id="phone-error" style="display:none;color:red;font-size:13px;">
+        Enter valid 10 digit number
+      </div>
+
+      <button id="confirmBtn" onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ================= CONFIRM MODAL ================= -->
+<div id="confirmModal" class="modal">
+  <div class="modal-box">
+    <h3>✅ Booking Confirmed</h3>
+    <p>Pay at venue (Cash / UPI)</p>
+    <button onclick="closeModal()">OK</button>
+  </div>
+</div>
+
+<!-- ================= MOBILE BOOK FOOTER ================= -->
+<div id="mobileFooter" class="mobile-footer">
+  <div class="footer-price">
+    <span id="footerPrice">₹0</span>
+    <small>1 slot selected</small>
+  </div>
+  <button onclick="openBookingForm()">Book Now</button>
+</div>
+
+
+<!-- ===== BOOKING FOOTER INFO ===== -->
+<section class="booking-footer">
+  <div class="footer-left">
+    <div class="footer-title">Jalalpur Cricket Box</div>
+    <div class="footer-sub">
+      This website is operated by <b>Mahammad Ayan</b>.
+    </div>
+  </div>
+
+  <div class="footer-right">
+        <a href="https://wa.me/918488893486?text=Hi" target="_blank" class="footer-icon">
+      <img src="/static/icons/whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://www.instagram.com/ayan.momin10/" target="_blank" class="footer-icon">
+      <img src="/static/icons/instagram.png" alt="Instagram">
+    </a>
+  </div>
+</section>
+
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Mahammad Ayan. All rights reserved.
+  </footer>
+
+<script src="/static/script.js"></script>
+
+<script>
+function toggleMenu() {
+  const m = document.getElementById("mobileMenu");
+  m.style.display = m.style.display === "block" ? "none" : "block";
+}
+</script>
+
+
+</body>
+</html>

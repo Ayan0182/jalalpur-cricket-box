@@ -1,0 +1,292 @@
+/* ================= GLOBAL RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%; /* ✅ MOBILE AUTO ZOOM FIX */
+}
+
+body {
+  width: 100%;
+  background: #f8fafc;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  height: 64px;
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    padding: 0 40px;
+  }
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.admin-btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #5498fc;
+  color: #5498fc;
+  font-weight: 600;
+}
+
+/* ================= HERO CARD ================= */
+.hero-card {
+  width: 92vw;              /* ✅ IMPORTANT */
+  max-width: 900px;
+  margin: 32px auto;
+  background: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+}
+
+.hero-title {
+  font-size: 2rem;          /* ✅ rem instead of px */
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.hero-title span {
+  color: #5498fc;
+}
+
+.hero-sub {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ================= COMMON CARD ================= */
+.home-card {
+  width: 92vw;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+.home-title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* ================= WHY CHOOSE US ================= */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.why-item {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.why-item span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+/* ================= AVAILABILITY ================= */
+.availability-box {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.avail.green { color: #16a34a; }
+.avail.red { color: #dc2626; }
+
+/* ================= SPORTS ================= */
+.sports {
+  text-align: center;
+  padding: 24px 0 40px;
+}
+
+.sports h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.sport-card {
+  width: 180px;
+  margin: auto;
+  background: #ffffff;
+  padding: 26px 18px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.sport-icon {
+  font-size: 42px;
+}
+
+.sport-name {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.sport-action {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #dc2626;
+  font-weight: 700;
+  animation: blinkText 1s infinite;
+}
+/* blink animation */
+@keyframes blinkText {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================= STEPS ================= */
+.steps {
+  display: flex;
+  gap: 14px;
+}
+
+.step {
+  flex: 1;
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ================= REVIEWS ================= */
+.review {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.review p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.review span {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    flex-direction: column;
+  }
+
+  .availability-box {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .sport-card {
+    width: 165px;
+  }
+}
+
+/* ================= SKELETON LOADING ================= */
+
+.hidden {
+  display: none;
+}
+
+.skeleton-line {
+  height: 18px;
+  width: 100%;
+  max-width: 260px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Mobile thoda compact */
+@media (max-width: 768px) {
+  .skeleton-line {
+    height: 16px;
+    max-width: 220px;
+  }
+}

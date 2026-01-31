@@ -1,0 +1,5 @@
+1. delete database.db file
+2. open terminal
+3. python app.py 
+
+twilio console - F29BYR45RFDENTG48BXEMG2
