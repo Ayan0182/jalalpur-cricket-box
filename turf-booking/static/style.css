@@ -1,10 +1,13 @@
 /* ================= BOOKING NAVBAR ================= */
 .booking-navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  width: 100%;
   background: #ffffff;
-  padding: 5px 10px;
+  padding: 6px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +27,10 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-right: 22px;
+
 }
+
 
 /* Navbar left spacing fix */
 .nav-left {
@@ -102,7 +108,7 @@ html, body {
 
 /* PAGE CONTENT */
 .page-content {
-  padding-top: 10px;
+  padding-top: 78px;
 }
 
 /* MOBILE NAV */
@@ -119,9 +125,17 @@ html, body {
 /* ================= BODY ================= */
 body {
   font-family: "Segoe UI", system-ui, sans-serif;
-  padding: 20px;
+  padding: 20px 0;
   background: #f8fafc;
+  margin: 0;               /* ⭐ important */
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px 0;
+  }
+}
+
 
 /* ================= CARDS ================= */
 .card {
@@ -545,7 +559,10 @@ body {
   gap: 14px;
   padding: 14px 18px;
   margin-top: 30px;
-  
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .footer-left {
@@ -644,13 +661,6 @@ body {
   color: #e5e7eb;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding: 14px 20px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: #d1d5db;
-}
 
 /* ================= MOBILE ================= */
 .main-footer {
