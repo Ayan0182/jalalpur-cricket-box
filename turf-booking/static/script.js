@@ -148,7 +148,7 @@ function toggleSlot(slot, el) {
 
   // PC
   if (!isMobile()) {
-    bookingForm.style.display = "block";
+    bookingForm.style.display = "block";  
     bookingForm.scrollIntoView({ behavior: "smooth" });
   }
 
@@ -162,8 +162,17 @@ function toggleSlot(slot, el) {
 /* ================= MOBILE BUTTON ================= */
 function openBookingForm() {
   bookingForm.style.display = "block";
-  bookingForm.scrollIntoView({ behavior: "smooth" });
+
+  // ✅ Correct scroll position (slightly above booking form)
+  const yOffset = -300; // navbar / spacing adjust
+  const y =
+    bookingForm.getBoundingClientRect().top +
+    window.pageYOffset +
+    yOffset;
+
+  window.scrollTo({ top: y, behavior: "smooth" });
 }
+
 
 /* ================= CONFIRM BOOKING ================= */
 function confirmBooking() {
