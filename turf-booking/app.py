@@ -374,6 +374,33 @@ def cancel_booking():
     return jsonify({"success": True})
 
 
+# ================= DELETE CANCELLED BOOKING =================
+@app.route("/admin/delete-booking", methods=["POST"])
+def delete_booking():
+    if not session.get("admin_id"):
+        return jsonify({"success": False}), 401
+
+    booking_id = request.json.get("booking_id")
+
+    conn = get_db()
+    c = conn.cursor()
+
+    # allow delete only if cancelled
+    c.execute("SELECT status FROM bookings WHERE id=?", (booking_id,))
+    row = c.fetchone()
+
+    if not row or row["status"] != "cancelled":
+        conn.close()
+        return jsonify({"success": False})
+
+    c.execute("DELETE FROM bookings WHERE id=?", (booking_id,))
+    conn.commit()
+    conn.close()
+
+    return jsonify({"success": True})
+
+
+
 # ================= CHANGE PASSWORD =================
 @app.route("/admin/change-password", methods=["POST"])
 def change_password():
@@ -421,6 +448,7 @@ def change_password():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 
 
