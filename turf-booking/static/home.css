@@ -1,292 +1,508 @@
-/* ================= GLOBAL RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  /* ================= GLOBAL RESET ================= */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+  }
+
+  html {
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%; /* ✅ MOBILE AUTO ZOOM FIX */
+  }
+
+  body {
+    width: 100%;
+    background: #f8fafc;
+    color: #111;
+    /* overflow-x: hidden; */
+  }
+
+  /* ===== STOP EXTRA SCROLL AFTER FOOTER ===== */
+html, body {
+  height: 100%;
+  overscroll-behavior-y: none;
 }
 
-html {
-  width: 100%;
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%; /* ✅ MOBILE AUTO ZOOM FIX */
-}
 
-body {
-  width: 100%;
-  background: #f8fafc;
-  color: #111;
-  overflow-x: hidden;
-}
-
-/* ================= NAVBAR ================= */
-.navbar {
-  height: 64px;
-  width: 100%;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-@media (min-width: 769px) {
+  /* ================= NAVBAR ================= */
   .navbar {
-    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 60px;
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  @media (min-width: 769px) {
+    .navbar {
+      padding: 0 40px;
+    }
+  }
+
+
+  .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .admin-btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #000000;
+  }
+
+  /* ================= HERO CARD ================= */
+  .hero-card {
+    width: 92vw;              /* ✅ IMPORTANT */
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 40px 20px;
+    text-align: center;
+
+  }
+
+  .hero-title {
+    font-size: 2rem;          /* ✅ rem instead of px */
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .hero-title span {
+    color: #f9c542;
+    text-shadow: 1px 1px 2px#000000;
+  }
+
+  .hero-sub {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  /* ================= COMMON CARD ================= */
+  .home-card {
+    width: 92vw;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  }
+
+  .home-title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  
+
+  /* ================= AVAILABILITY ================= */
+  .availability-box {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .avail.green { color: #16a34a; }
+  .avail.red { color: #dc2626; }
+
+ /* ===== CHOOSE YOUR SPORT SECTION ===== */
+.choose-sport {
+  width: 100%;
+  background: #f6f4ff;
+  padding: 40px 0;
+  margin-top: 20px;
+}
+
+.choose-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2b1c5a;
+  margin-bottom: 30px;
+}
+
+.sport-grid {
+  width: 92vw;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+/* Common card */
+.sport-box {
+  height: 140px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+.sport-box:hover {
+  transform: translateY(-6px);
+}
+
+.sport-emoji {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.sport-label {
+  font-size: 1.05rem;
+}
+
+/* Colors (same vibe as image) */
+.cricket { background: #dcfce7; color: #166534; }
+.football { background: #dbeafe; color: #1e40af; }
+.badminton { background: #f3e8ff; color: #6b21a8; }
+.tennis { background: #fef9c3; color: #854d0e; }
+.basketball { background: #ffedd5; color: #9a3412; }
+.pickleball { background: #ccfbf1; color: #065f46; }
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+  .sport-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .sport-box {
+    height: 120px;
+  }
+
+  .choose-title {
+    font-size: 1.5rem;
   }
 }
 
-.logo {
-  font-size: 1.1rem;
-  font-weight: 700;
+
+  
+
+  /* ================= MOBILE ================= */
+  @media (max-width: 768px) {
+
+    .hero-title {
+      font-size: 1.6rem;
+    }
+
+  }
+
+  /* ================= SKELETON LOADING ================= */
+
+  .hidden {
+    display: none;
+  }
+
+  .skeleton-line {
+    height: 18px;
+    width: 100%;
+    max-width: 260px;
+    margin: 10px auto;
+    border-radius: 10px;
+    background: linear-gradient(
+      90deg,
+      #e5e7eb 25%,
+      #f3f4f6 37%,
+      #e5e7eb 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  /* Mobile thoda compact */
+  @media (max-width: 768px) {
+    .skeleton-line {
+      height: 16px;
+      max-width: 220px;
+    }
+  }
+
+
+  /* ===== NAVBAR LOGO (IMPROVED SIZE & PRESENCE) ===== */
+  .navbar-logo {
+    height: 65px;          /* PC size */
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  /* Navbar left spacing fix */
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Tablet */
+  @media (max-width: 900px) {
+    .navbar-logo {
+      height: 58px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .navbar-logo {
+      height: 60px;
+    }
+  }
+
+/* ===== HERO TITLE LINE CONTROL ===== */
+
+/* PC / Tablet: single line */
+@media (min-width: 769px) {
+  .hero-title {
+    white-space: nowrap;
+  }
+
+  .hero-title br {
+    display: none;
+  }
 }
 
-.admin-btn {
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid #5498fc;
-  color: #5498fc;
-  font-weight: 600;
+/* Mobile: same as current (two lines) */
+@media (max-width: 768px) {
+  .hero-title {
+    white-space: normal;
+  }
+
+  .hero-title br {
+    display: block;
+  }
 }
 
-/* ================= HERO CARD ================= */
-.hero-card {
-  width: 92vw;              /* ✅ IMPORTANT */
-  max-width: 900px;
-  margin: 32px auto;
-  background: #ffffff;
-  padding: 40px 20px;
+/* ===== BOOKING CTA BUTTON (BookMyGame style) ===== */
+.booking-cta {
+  width: 92vw;
+  max-width: 420px;
+  margin: 20px auto 0;
+}
+
+.booking-btn {
+  display: block;
+  width: 100%;
   text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff3b6f, #ff5a8a);
+  box-shadow: 0 10px 22px rgba(255, 59, 111, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.hero-title {
-  font-size: 2rem;          /* ✅ rem instead of px */
-  font-weight: 800;
-  line-height: 1.25;
+/* Hover (PC) */
+.booking-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(255, 59, 111, 0.45);
 }
 
-.hero-title span {
-  color: #5498fc;
+/* Active (Mobile tap) */
+.booking-btn:active {
+  transform: scale(0.98);
 }
 
-.hero-sub {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* ================= COMMON CARD ================= */
-.home-card {
+/* ===== LOCATION INFO CARD (BookMyGame style) ===== */
+.location-card {
   width: 92vw;
   max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #ffffff;
+  margin: 28px auto;
+  padding: 24px 26px;
+  background: #faf8ff;
   border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
 }
 
-.home-title {
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 18px;
+.location-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #2b1c5a;
+  line-height: 1.4;
 }
 
-/* ================= WHY CHOOSE US ================= */
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-
-.why-item {
-  background: #f8fafc;
-  padding: 16px;
-  border-radius: 14px;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.why-item span {
-  display: block;
-  margin-top: 6px;
-  font-size: 0.85rem;
-}
-
-/* ================= AVAILABILITY ================= */
-.availability-box {
-  display: flex;
-  justify-content: space-around;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.avail.green { color: #16a34a; }
-.avail.red { color: #dc2626; }
-
-/* ================= SPORTS ================= */
-.sports {
-  text-align: center;
-  padding: 24px 0 40px;
-}
-
-.sports h2 {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-}
-
-.sport-card {
-  width: 180px;
-  margin: auto;
-  background: #ffffff;
-  padding: 26px 18px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  cursor: pointer;
-}
-
-.sport-icon {
-  font-size: 42px;
-}
-
-.sport-name {
+.location-desc {
   margin-top: 10px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* Tags */
+.location-tags {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.location-tags span {
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2b1c5a;
+  background: #ffffff;
+  border: 1px solid #e6e2f5;
+}
+
+/* ===== MOBILE TUNING ===== */
+@media (max-width: 768px) {
+
+  .location-card {
+    padding: 20px;
+  }
+
+  .location-title {
+    font-size: 1.15rem;
+  }
+
+  .location-desc {
+    font-size: 0.9rem;
+  }
+
+  .location-tags {
+    gap: 8px;
+  }
+
+  .location-tags span {
+    font-size: 0.8rem;
+    padding: 7px 12px;
+  }
+}
+
+
+/* ================= FOOTER ================= */
+.main-footer {
+  background: #2b145c;
+  color: #ffffff;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-logo {
+  height: 65px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+
+.footer-title {
   font-size: 1.05rem;
   font-weight: 700;
-}
-
-.sport-action {
-  margin-top: 6px;
-  font-size: 0.85rem;
-  color: #dc2626;
-  font-weight: 700;
-  animation: blinkText 1s infinite;
-}
-/* blink animation */
-@keyframes blinkText {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* ================= STEPS ================= */
-.steps {
-  display: flex;
-  gap: 14px;
-}
-
-.step {
-  flex: 1;
-  background: #f8fafc;
-  padding: 14px;
-  border-radius: 14px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-/* ================= REVIEWS ================= */
-.review {
-  background: #f9fafb;
-  padding: 16px;
-  border-radius: 14px;
   margin-bottom: 14px;
 }
 
-.review p {
-  margin: 6px 0;
-  font-size: 0.95rem;
+.footer-list {
+  list-style: none;
 }
 
-.review span {
-  font-size: 0.8rem;
-  color: #6b7280;
+.footer-list li {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #e5e7eb;
 }
 
-/* ================= FOOTER ================= */
-.footer {
+.footer-owner {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 20px;
   text-align: center;
-  padding: 16px;
   font-size: 0.8rem;
-  color: #777;
+  color: #d1d5db;
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-  .hero-title {
-    font-size: 1.6rem;
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 30px 18px;
   }
 
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .footer-logo {
+    height: 42px;
   }
 
-  .steps {
-    flex-direction: column;
+  .footer-title {
+    margin-top: 10px;
   }
 
-  .availability-box {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-
-  .sport-card {
-    width: 165px;
+  .footer-bottom {
+    font-size: 0.75rem;
+    line-height: 1.5;
   }
 }
 
-/* ================= SKELETON LOADING ================= */
-
-.hidden {
-  display: none;
+/* ===== FOOTER BOTTOM ALIGNMENT FIX ===== */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  font-size: 0.8rem;
+  color: #d1d5db;
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-.skeleton-line {
-  height: 18px;
-  width: 100%;
-  max-width: 260px;
-  margin: 10px auto;
-  border-radius: 10px;
-  background: linear-gradient(
-    90deg,
-    #e5e7eb 25%,
-    #f3f4f6 37%,
-    #e5e7eb 63%
-  );
-  background-size: 400% 100%;
-  animation: skeleton-loading 1.4s ease infinite;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
-}
-
-/* Mobile thoda compact */
+/* Mobile: upar-niche */
 @media (max-width: 768px) {
-  .skeleton-line {
-    height: 16px;
-    max-width: 220px;
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
   }
 }
