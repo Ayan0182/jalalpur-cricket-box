@@ -8,10 +8,9 @@ fetch("/admin/summary")
     document.getElementById("revenue-count").innerText = "₹" + data.revenue;
   });
 
-// ================= LOAD BOOKINGS TABLE =================
+// ================= LOAD BOOKINGS =================
 let allBookings = [];
 
-// ================= LOAD BOOKINGS TABLE =================
 fetch("/admin/bookings")
   .then(res => res.json())
   .then(data => {
@@ -26,6 +25,15 @@ function renderTable(data) {
   data.forEach(b => {
     const tr = document.createElement("tr");
 
+    let actionBtn = "-";
+
+    if (b.status === "confirmed") {
+      actionBtn = `<button onclick="cancelBooking(${b.booking_id})">Cancel</button>`;
+    } 
+    else if (b.status === "cancelled") {
+      actionBtn = `<button onclick="deleteBooking(${b.booking_id})" style="background:crimson">Delete</button>`;
+    }
+
     tr.innerHTML = `
       <td>${b.name}</td>
       <td>${b.phone}</td>
@@ -34,21 +42,14 @@ function renderTable(data) {
       <td>${b.time}</td>
       <td>₹${b.price}</td>
       <td>${b.status}</td>
-      <td>
-        ${
-          b.status === "confirmed"
-            ? `<button onclick="cancelBooking(${b.booking_id})">Cancel</button>`
-            : "-"
-        }
-      </td>
+      <td>${actionBtn}</td>
     `;
 
     table.appendChild(tr);
   });
 }
 
-
-// ================= CANCEL BOOKING =================
+// ================= CANCEL =================
 function cancelBooking(id) {
   if (!confirm("Cancel this booking?")) return;
 
@@ -57,18 +58,34 @@ function cancelBooking(id) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ booking_id: id })
   })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        alert("Booking cancelled");
-        location.reload();
-      }
-    });
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert("Booking cancelled");
+      location.reload();
+    }
+  });
 }
 
-// ============================= Change PAssword =============================
+// ================= DELETE =================
+function deleteBooking(id) {
+  if (!confirm("Permanently delete this booking?")) return;
 
+  fetch("/admin/delete-booking", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ booking_id: id })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert("Booking deleted permanently");
+      location.reload();
+    }
+  });
+}
 
+// ================= SEARCH =================
 document.getElementById("searchInput").addEventListener("input", function () {
   const value = this.value.toLowerCase();
 
