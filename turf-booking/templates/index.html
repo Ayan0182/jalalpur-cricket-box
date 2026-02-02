@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Slot - Dholka Cricket Box</title>
+  <title>Booking | CrickSlot</title>
+  <link rel="icon" href="/static/icons/logo-Photoroom.png" type="image/png" sizes="128x128">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
 <!-- ================= STICKY NAVBAR ================= -->
 <header class="booking-navbar">
-  <div class="nav-left">
-    <span class="brand">🏏 Dholka Cricket Box</span>
-  </div>
+<div class="nav-left">
+  <img src="/static/icons/logo-Photoroom.png" alt="Dholka Cricket Box" class="navbar-logo">
+</div>
+
 
   <div class="nav-right">
-    <a href="/" class="back-link">← Back to courts</a>
     <a href="/admin/login" class="admin-link">Admin</a>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
@@ -24,55 +25,41 @@
 <!-- MOBILE MENU -->
 <div id="mobileMenu" class="mobile-menu">
   <a href="/">🏠 Home</a>
+  <a href="/admin/login">🔐 Admin Login</a>
 </div>
 
+  <div class="back-link-container">
+    <a href="/" class="back-link">← Back to courts</a>
+  </div>
 <!-- ================= PAGE CONTENT ================= -->
 <div class="page-content">
 
-  <!-- ================= SECTION 0 : VENUE DETAILS ================= -->
-  <section class="card venue-info">
-    <h2 class="venue-title">Dholka Cricket Box</h2>
-
-    <p class="venue-meta">
-      <b>
-        📍 Location – Dholka Cricket Box, Dholka <br>
-        ⏱︎ 60 min slots • 24 Hours Open
-      </b>
-    </p>
-
-    <p class="venue-desc">
-      Experience fast-paced cricket at Dholka Box Cricket, the perfect destination for fun,
-      fitness, and friendly competition. Our premium box cricket facility is designed for
-      players of all skill levels, offering a safe, energetic, and well-maintained playing
-      environment. <br><br>
-      24 Hour Open • Quick & Easy Online Booking – Reserve your slot in seconds •
-      Play comfortably day or night.
-    </p>
-  </section>
-
-  <!-- ================= COMFORTS STRIP ================= -->
-  <section class="comforts-strip">
-    <div>📷 CCTV Surveillance</div>
-    <div>📱 Easy Booking</div>
-    <div>💡 Flood Lights</div>
-    <div>🚗 Free Parking</div>
-  </section>
 
   <!-- ================= SECTION 1 : DATE ================= -->
-  <section class="card">
-    <h3 class="section-title">📅 Select Date</h3>
+<section class="card date-card">
+<h3 class="section-title date-title">
+  <img src="/static/icons/calendar.png" alt="Calendar" class="date-icon" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;margin-top:-5px;">
+  Select Date
+</h3>
+
+
+  <div class="date-scroll">
     <div id="dates" class="dates"></div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ================= SECTION 2 : TIME SLOTS ================= -->
   <section class="card">
     <div class="card-header">
-      <h3 class="section-title">
-        ⏱ Time Slots
-        <span id="selected-date-label"
-          style="font-weight:400;font-size:14px;color:#6b7280;">
-        </span>
-      </h3>
+<h3 class="section-title time-title">
+  <img src="/static/icons/time.png" alt="Time Slots" class="time-icon" style="width:20px;height:20px;vertical-align:middle;margin-right:5px;margin-top:-5px;">
+  Time Slots
+  <span id="selected-date-label"
+    style="font-weight:400;font-size:14px;color:#6b7280;">
+  </span>
+</h3>
+
 
       <div id="slotCount" class="slot-count">
         Available: 0 | Booked: 0
@@ -107,6 +94,35 @@
 
   </section>
 
+  <!-- ================= SECTION 0 : VENUE DETAILS ================= -->
+  <section class="card venue-info">
+    <h2 class="venue-title">Dholka Cricket Box</h2>
+
+    <p class="venue-meta">
+      <b>
+        Location – Dholka Cricket Box, Dholka <br>
+        ⏱︎ 60 min slots • 24 Hours Open
+      </b>
+    </p>
+
+    <p class="venue-desc">
+      Experience fast-paced cricket at Dholka Box Cricket, the perfect destination for fun,
+      fitness, and friendly competition. Our premium box cricket facility is designed for
+      players of all skill levels, offering a safe, energetic, and well-maintained playing
+      environment. <br><br>
+      24 Hour Open • Quick & Easy Online Booking – Reserve your slot in seconds •
+      Play comfortably day or night.
+    </p>
+  </section>
+
+  <!-- ================= COMFORTS STRIP ================= -->
+  <section class="comforts-strip">
+    <div>📷 CCTV Surveillance</div>
+    <div>📱 Easy Booking</div>
+    <div>💡 Flood Lights</div>
+    <div>🚗 Free Parking</div>
+  </section>
+
 </div>
 
 <!-- ================= CONFIRM MODAL ================= -->
@@ -129,30 +145,75 @@
 
 
 <!-- ===== BOOKING FOOTER INFO ===== -->
-<section class="booking-footer">
-  <div class="footer-left">
-    <div class="footer-title">Dholka Cricket Box</div>
-    <div class="footer-sub">
-      This website is operated by <b>Mahammad Ayan</b>.
+
+
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+
+  <div class="footer-container">
+
+    <!-- LEFT -->
+    <div class="footer-col footer-left">
+      <img src="/static/icons/logo-Photoroom.png" alt="CrickSlot" class="footer-logo">
+
+      <p class="footer-text">
+        This website is operated by <b>CrickSlot</b>.<br><br>
+        Payments for bookings made on this website are collected by the platform owner.
+        Venue partners only provide the booked services and do not collect payment directly
+        from customers through this website. Refunds (if applicable) are processed by the
+        platform owner.
+      </p>
     </div>
+
+    <!-- MIDDLE -->
+    <div class="footer-col">
+      <h4 class="footer-title">How Booking Works?</h4>
+      <ul class="footer-list">
+        <li>1 - Select Date & Time</li>
+        <li>2 - Enter Name & Phone</li>
+        <li>3 - Pay at Venue & Play</li>
+      </ul>
+    </div>
+
+
+    <!-- RIGHT -->
+    <div class="footer-col">
+      <h4 class="footer-title">About Us</h4>
+      <ul class="footer-list">
+        <li>Premium Box Pitch</li>
+        <li>Up to 24 Players</li>
+        <li>Night Flood Lights</li>
+        <li>24×7 CCTV Security</li>
+      </ul>
+
+      <p class="footer-owner">
+        Legal Owner: <b>CrickSlot</b>
+      </p>
+    </div>
+
   </div>
 
+  
+
+
+<div class="footer-bottom">
+  <span>© 2026 Crick Slot. All rights reserved.</span>
+  <span><section class="booking-footer">
   <div class="footer-right">
-        <a href="https://wa.me/918488893486?text=Hi" target="_blank" class="footer-icon">
-      <img src="/static/icons/whatsapp.png" alt="WhatsApp">
+        <a href="https://wa.me/918488893486?text=Hey, Ayan!!" target="_blank" class="footer-icon">
+      <img src="/static/icons/whatsapp.png" alt="WhatsApp" style="width:30px;height:30px;">
     </a>
     <a href="https://www.instagram.com/ayan.momin10/" target="_blank" class="footer-icon">
-      <img src="/static/icons/instagram.png" alt="Instagram">
+      <img src="/static/icons/instagram.png" alt="Instagram" style="width:45px;height:30px;">
     </a>
   </div>
-</section>
+</section></span>
+</div>
 
+</footer>
 
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    © 2026 Mahammad Ayan. All rights reserved.
-  </footer>
 
 <script src="/static/script.js"></script>
 
@@ -166,5 +227,3 @@ function toggleMenu() {
 
 </body>
 </html>
-
-
