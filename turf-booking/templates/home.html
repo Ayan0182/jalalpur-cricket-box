@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Book Sports At Dholka Cricket Box</title>
+  <title>CrickSlot | BookNow</title>
+  <link rel="icon" href="/static/icons/logo-Photoroom.png" type="image/png" sizes="128x128">
   <link rel="stylesheet" href="/static/home.css" />
 </head>
 <body>
 
   <!-- NAVBAR -->
   <header class="navbar">
-    <div class="logo">🏏 Dholka Cricket Box</div>
+    <div class="nav-left">
+  <img src="/static/icons/logo-Photoroom.png" alt="Dhokla Cricket Box" class="navbar-logo">
+</div>
     <a href="/admin/login" class="admin-btn">Admin</a>
   </header>
 
@@ -18,12 +21,46 @@
   <section class="hero-card">
     <h1 class="hero-title">
       Book Sports At <br>
-      <span>"Dholka Cricket Box"</span>
+      <span>Dholka Cricket Box</span>
     </h1>
     <p class="hero-sub">
       Easy booking • Real-time availability • Pay at venue
     </p>
+    <p class="hero-sub">
+      Experience fast-paced cricket at Dholka Cricket Box, the perfect destination for fun,
+      fitness, and friendly competition. <br><br></p>
+      <p style="color:red;">Book Your Slot Now.</p>
   </section>
+
+<div class="booking-cta">
+  <a href="/booking" class="booking-btn">
+    Booking
+  </a>
+</div>
+<br>
+<br>
+
+
+<!-- LOCATION INFO SECTION -->
+<section class="location-card">
+  <h2 class="location-title">
+    Dholka Cricket Box – Location: Dholka – 60 min slots • 24 Hours Open
+  </h2>
+
+  <p class="location-desc">
+    Experience fast-paced cricket at Dholka Cricket Box, the perfect destination for fun,
+    fitness, and friendly competition.
+    <br><br>
+    24 Hour Open • Quick & Easy Online Booking – Reserve your slot in seconds •
+    Play comfortably day or night.
+  </p>
+
+  <div class="location-tags">
+    <span>Dholka</span>
+    <span>Ahmedabad</span>
+  </div>
+</section>
+
 
   <!-- TODAY AVAILABILITY -->
   <section class="home-card availability">
@@ -42,81 +79,95 @@
     </div>
   </section>
 
-  <!-- BOOK NOW -->
-  <section class="sports">
-    <h2>Venue - Dholka Cricket Box</h2>
 
-    <div class="sport-card" onclick="window.location.href='/booking'">
-      <div class="sport-icon">🏏</div>
-      <div class="sport-name">Cricket Box</div>
-      <div class="sport-action">Book Now</div>
-    </div>
-  </section>
+  <!-- CHOOSE YOUR SPORT -->
+<section class="choose-sport">
+  <h2 class="choose-title">Choose Your Sport</h2>
 
-  <!-- HOW IT WORKS -->
-  <section class="home-card">
-    <h2 class="home-title">How Booking Works?</h2>
-
-    <div class="steps">
-      <div class="step">1 -  Select Date & Time</div>
-      <div class="step">2 - Enter Name & Phone</div>
-      <div class="step">3 - Pay at Venue & Play 🎉</div>
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section class="home-card">
-    <h2 class="home-title">Why Choose Us?</h2>
-
-    <div class="why-grid">
-      <div class="why-item">🏏<span>Premium Box Pitch</span></div>
-      <div class="why-item">👥<span>Up to 24 Players</span></div>
-      <div class="why-item">💡<span>Night Flood Lights</span></div>
-      <div class="why-item">📷<span>24×7 CCTV Security</span></div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="home-card">
-    <h2 class="home-title">What Players Say !!</h2>
-
-    <div class="review">
-      ⭐⭐⭐⭐⭐
-      <p>“Best box cricket. Lights and pitch are awesome.”</p>
-      <span>— Rahul</span>
+  <div class="sport-grid">
+    <div class="sport-box cricket" onclick="location.href='/booking'">
+      <div class="sport-emoji">🏏</div>
+      <div class="sport-label">Cricket</div>
     </div>
 
-    <div class="review">
-      ⭐⭐⭐⭐☆
-      <p>“Easy booking and good parking space.”</p>
-      <span>— Ayan</span>
+    <div class="sport-box football" onclick="location.href='/booking'">
+      <div class="sport-emoji">⚽</div>
+      <div class="sport-label">Football</div>
     </div>
 
-    <div class="review">
-      ⭐⭐⭐⭐☆
-      <p>“Best Service.”</p>
-      <span>— Sanket</span>
+    <div class="sport-box badminton" onclick="location.href='/booking'">
+      <div class="sport-emoji">🏸</div>
+      <div class="sport-label">Badminton</div>
     </div>
 
-    <div class="review">
-      ⭐⭐⭐☆ ☆
-      <p>“Easy booking and good Service”</p>
-      <span>— Ketan</span>
+    <div class="sport-box tennis" onclick="location.href='/booking'">
+      <div class="sport-emoji">🎾</div>
+      <div class="sport-label">Tennis</div>
     </div>
 
-    <div class="review">
-      ⭐⭐⭐⭐☆
-      <p>“Best Box with Good Parking!!”</p>
-      <span>— Jay</span>
+    <div class="sport-box basketball" onclick="location.href='/booking'">
+      <div class="sport-emoji">🏀</div>
+      <div class="sport-label">Basketball</div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    © 2026 Mahammad Ayan. All rights reserved.
-  </footer>
+    <div class="sport-box pickleball" onclick="location.href='/booking'">
+      <div class="sport-emoji">🏓</div>
+      <div class="sport-label">Pickleball</div>
+    </div>
+  </div>
+</section>
 
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+
+  <div class="footer-container">
+
+    <!-- LEFT -->
+    <div class="footer-col footer-left">
+      <img src="/static/icons/logo-Photoroom.png" alt="CrickSlot" class="footer-logo">
+
+      <p class="footer-text">
+        This website is operated by <b>CrickSlot</b>.<br><br>
+        Payments for bookings made on this website are collected by the platform owner.
+        Venue partners only provide the booked services and do not collect payment directly
+        from customers through this website. Refunds (if applicable) are processed by the
+        platform owner.
+      </p>
+    </div>
+
+    <!-- MIDDLE -->
+    <div class="footer-col">
+      <h4 class="footer-title">How Booking Works?</h4>
+      <ul class="footer-list">
+        <li>1 - Select Date & Time</li>
+        <li>2 - Enter Name & Phone</li>
+        <li>3 - Pay at Venue & Play</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="footer-col">
+      <h4 class="footer-title">About Us</h4>
+      <ul class="footer-list">
+        <li>Premium Box Pitch</li>
+        <li>Up to 24 Players</li>
+        <li>Night Flood Lights</li>
+        <li>24×7 CCTV Security</li>
+      </ul>
+
+      <p class="footer-owner">
+        Legal Owner: <b>CrickSlot</b>
+      </p>
+    </div>
+
+  </div>
+
+<div class="footer-bottom">
+  <span>© 2026 Crick Slot. All rights reserved.</span>
+  <span>This website is operated by CrickSlot.</span>
+</div>
+
+</footer>
   <script src="/static/home.js"></script>
 </body>
 </html>
-
