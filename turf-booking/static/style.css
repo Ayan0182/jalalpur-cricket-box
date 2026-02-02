@@ -120,6 +120,9 @@ html, body {
   .menu-btn {
     display: block;
   }
+    .mobile-menu{
+      margin-top: 55px;
+  }
 }
 
 /* ================= BODY ================= */
@@ -710,3 +713,4 @@ body {
     text-align: center;
   }
 }
+
