@@ -1,182 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Login | CrickSlot</title>
-<link rel="icon" href="/static/icons/account.png" type="image/png" sizes="128x128">
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, sans-serif;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f172a, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .login-wrapper {
-      width: 100%;
-      max-width: 380px;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 28px 24px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    }
-
-    .brand {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .brand .icon {
-      font-size: 40px;
-    }
-
-    .brand h2 {
-      margin: 8px 0 4px;
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .brand p {
-      font-size: 13px;
-      color: #555;
-    }
-
-    .error {
-      background: #fee2e2;
-      color: #b91c1c;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      margin-bottom: 14px;
-      text-align: center;
-    }
-
-    form input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 14px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-    }
-
-    form input:focus {
-      outline: none;
-      border-color: #2563eb;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      background: #111827;
-      color: white;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    button:hover {
-      background: #1f2937;
-    }
-
-    .forgot {
-  margin-top: 12px;
-  text-align: center;
-}
-
-.forgot a {
-  font-size: 13px;
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.forgot a:hover {
-  text-decoration: underline;
-}
-
-
-    .footer-text {
-      margin-top: 16px;
-      text-align: center;
-      font-size: 12px;
-      color: #777;
-    }
-
-    /* MOBILE */
-    @media (max-width: 480px) {
-      .login-wrapper {
-        padding: 24px 18px;
-      }
-
-      .brand h2 {
-        font-size: 20px;
-      }
-    }
-  </style>
+  <title>Dashboard | CrickSlot</title>
+  <link rel="icon" href="/static/icons/logo-Photoroom.png" type="image/png" sizes="128x128">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/admin.css">
 </head>
 <body>
 
-  <div class="login-wrapper">
+<header class="top-bar">
+  <h2>🏏 Box Cricket Admin</h2>
 
-    <div class="brand">
-      <div class="icon">🏏</div>
-      <h2>Box Cricket Admin</h2>
-      <p>Jalalpur Cricket Box</p>
-    </div>
-
-    {% if error %}
-      <div class="error">{{ error }}</div>
-    {% endif %}
-
-    <form method="POST">
-      <input
-        name="username"
-        placeholder="Admin Username"
-        required
-      />
-
-      <input
-        name="password"
-        type="password"
-        placeholder="Admin Password"
-        required
-      />
-
-      <button type="submit">Login</button>
-      <div class="forgot">
-  <a href="#" onclick="forgotPassword()">Forgot password?</a>
-</div>
-
-    </form>
-
-    <div class="footer-text">
-      © 2026 Mahammad Ayan
-    </div>
-
+  <div class="admin-right">
+    <span class="admin-name">Welcome, {{ admin }}</span>
+    <a href="/admin/logout" class="logout-btn">Logout</a>
   </div>
+</header>
 
+
+<section class="stats">
+  <div class="card">
+    <h3>Today</h3>
+    <p id="today-count">0</p>
+  </div>
+  <div class="card">
+    <h3>Tomorrow</h3>
+    <p id="tomorrow-count">0</p>
+  </div>
+  <div class="card">
+    <h3>Weekend</h3>
+    <p id="weekend-count">0</p>
+  </div>
+  <div class="card">
+    <h3>Total Revenue</h3>
+    <p id="revenue-count">₹0</p>
+  </div>
+</section>
+
+<section class="table-section">
+  <h3>📋 Bookings</h3>
+  <input
+  type="text"
+  id="searchInput"
+  placeholder="Search by Name or Phone..."
+  class="search-input"/>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="bookingTable"></tbody>
+  </table>
+</section>
+
+<section class="password-section">
+  <h3>🔒 Change Password</h3>
+  <input id="oldPass" type="password" placeholder="Old password">
+  <input id="newPass" type="password" placeholder="New password">
+  <button onclick="changePassword()">Update Password</button>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Mahammad Ayan. All rights reserved.
+  </footer>
+
+<script src="/static/admin.js"></script>
 
 <script>
-function forgotPassword() {
-  window.open(
-    "https://wa.me/918488893486?text=Hi,%20I%20forgot%20admin%20password%20for%20Jalalpur%20Cricket%20Box",
-    "_blank"
-  );
-}
+function changePassword() {
+  const oldPass = document.getElementById("oldPass").value.trim();
+  const newPass = document.getElementById("newPass").value.trim();
 
+  if (!oldPass || !newPass) {
+    alert("Fill both fields");
+    return;
+  }
+
+  fetch("/admin/change-password", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      old_password: oldPass,
+      new_password: newPass
+    })
+  })
+  .then(res => res.json())
+  .then(d => {
+    if (d.success) {
+      alert("Password changed successfully");
+      document.getElementById("oldPass").value = "";
+      document.getElementById("newPass").value = "";
+    } else {
+      alert(d.message);
+    }
+  });
+}
 </script>
 
 
