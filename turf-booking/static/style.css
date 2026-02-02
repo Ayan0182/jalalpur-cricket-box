@@ -4,13 +4,48 @@
   top: 0;
   z-index: 1000;
   background: #ffffff;
-  padding: 14px 16px;
+  padding: 5px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
 }
+
+/* ===== NAVBAR LOGO (IMPROVED SIZE & PRESENCE) ===== */
+.navbar-logo {
+  height: 65px;          /* PC size */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Navbar left spacing fix */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .navbar-logo {
+    height: 48px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .navbar-logo {
+    height: 60px;
+  }
+}
+
 
   /* ===== STOP EXTRA SCROLL AFTER FOOTER ===== */
 html, body {
@@ -22,12 +57,6 @@ html, body {
 .brand {
   font-weight: 700;
   font-size: 16px;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
 }
 
 
@@ -163,38 +192,40 @@ body {
   margin-bottom: 8px;
 }
 
-/* ===== DATE CARD FINAL FIX ===== */
+/* ===== DATE CARD – CLEAN & PREMIUM ===== */
 
+/* container already flex hai, just ensure gap */
 .dates {
   display: flex;
   gap: 12px;
 }
 
-/* DATE CARD */
+/* each date card */
 .dates > div,
 .dates button {
   min-width: 70px;
   height: 90px;
   border-radius: 18px;
-  background: #f3f4f6;
+
+  /* ❌ no border */
   border: none;
+
+  /* ✅ clean background */
+  background: #f3f4f6;
+
+  /* ✅ soft premium shadow */
   box-shadow: 0 6px 14px rgba(0,0,0,0.06);
 
   display: flex;
-  flex-direction: column;   /* ⭐ MAIN FIX */
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-/* FORCE EACH LINE */
-.dates span {
-  display: block;           /* ⭐⭐ VERY IMPORTANT */
-  text-align: center;
-}
-
-/* DAY */
+/* Day (Mon, Tue) */
 .dates .day {
   font-size: 0.8rem;
   color: #6b7280;
@@ -202,7 +233,7 @@ body {
   margin-bottom: 2px;
 }
 
-/* DATE NUMBER */
+/* Date number (2, 3) */
 .dates .num {
   font-size: 1.4rem;
   font-weight: 800;
@@ -210,14 +241,14 @@ body {
   color: #111827;
 }
 
-/* MONTH */
+/* Month (Feb) */
 .dates .month {
   font-size: 0.75rem;
   color: #6b7280;
   margin-top: 2px;
 }
 
-/* ACTIVE DATE */
+/* ===== ACTIVE / SELECTED DATE ===== */
 .dates .active,
 .dates .selected {
   background: linear-gradient(135deg, #fb7185, #f43f5e);
@@ -232,22 +263,57 @@ body {
   color: #ffe4e6;
 }
 
-/* ===== MOBILE SCROLL ===== */
-@media (max-width: 768px) {
-  .dates {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 10px;
-  }
+.dates .active .num,
+.dates .selected .num {
+  color: #ffffff;
+}
 
-  .dates > div {
-    flex: 0 0 auto;
-    min-width: 66px;
+/* Hover (PC only feel) */
+.dates > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== MOBILE TUNING ===== */
+@media (max-width: 768px) {
+  .dates > div,
+  .dates button {
+    min-width: 64px;
     height: 84px;
   }
 }
 
+
+/* ===== MOBILE DATE SCROLL FIX ===== */
+@media (max-width: 768px) {
+
+  /* wrapper ko scrollable banao */
+  .dates {
+    display: flex;
+    flex-wrap: nowrap;          /* ❌ wrap band */
+    overflow-x: auto;           /* ✅ horizontal scroll */
+    gap: 12px;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* scrollbar hide (clean look) */
+  .dates::-webkit-scrollbar {
+    height: 6px;
+  }
+  .dates::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 10px;
+  }
+
+  /* date card size fixed */
+  .dates > div,
+  .dates button {
+    flex: 0 0 auto;             /* ⭐ very important */
+    min-width: 68px;
+    height: 82px;
+  }
+}
 
 
 /* ================= LEGEND ================= */
@@ -523,46 +589,14 @@ body {
 
 
 
-
-/* ===== NAVBAR LOGO (IMPROVED SIZE & PRESENCE) ===== */
-.navbar-logo {
-  height: 65px;          /* PC size */
-  width: auto;
-  object-fit: contain;
-  cursor: pointer;
-}
-
-/* Navbar left spacing fix */
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-
-/* Tablet */
-@media (max-width: 900px) {
-  .navbar-logo {
-    height: 48px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .navbar-logo {
-    height: 60px;
-  }
-}
-
-
-
-
-
-
 /* ================= FOOTER ================= */
 .main-footer {
   background: #2b145c;
   color: #ffffff;
   margin-top: 40px;
 }
+
+
 
 .footer-container {
   max-width: 1200px;
@@ -619,6 +653,12 @@ body {
 }
 
 /* ================= MOBILE ================= */
+.main-footer {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @media (max-width: 768px) {
 
   .footer-container {
