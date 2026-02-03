@@ -51,7 +51,8 @@ function renderTable(data) {
 
 // ================= CANCEL =================
 function cancelBooking(id) {
-  if (!confirm("Cancel this booking?")) return;
+  const ok = confirm("Cancel this booking?");
+  if (!ok) return;
 
   fetch("/admin/cancel-booking", {
     method: "POST",
@@ -61,16 +62,13 @@ function cancelBooking(id) {
   .then(res => res.json())
   .then(data => {
     if (data.success) {
-      alert("Booking cancelled");
-      location.reload();
+      location.reload();   // ❌ no extra alert
     }
   });
 }
 
 // ================= DELETE =================
 function deleteBooking(id) {
-  if (!confirm("Permanently delete this booking?")) return;
-
   fetch("/admin/delete-booking", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -79,8 +77,7 @@ function deleteBooking(id) {
   .then(res => res.json())
   .then(data => {
     if (data.success) {
-      alert("Booking deleted permanently");
-      location.reload();
+      location.reload();   // no popup at all
     }
   });
 }
@@ -96,3 +93,4 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
   renderTable(filtered);
 });
+
