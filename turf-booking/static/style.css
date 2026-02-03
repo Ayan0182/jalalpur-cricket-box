@@ -56,7 +56,6 @@
   /* ===== STOP EXTRA SCROLL AFTER FOOTER ===== */
 html, body {
   height: 100%;
-  overscroll-behavior-y: none;
 }
 
 
@@ -94,8 +93,13 @@ html, body {
 /* MOBILE MENU */
 .mobile-menu {
   display: none;
+  position: fixed;              /* ⭐ overlay banega */
+  top: 5px;                    /* navbar ke niche */
+  left: 0;
+  right: 0;
   background: #ffffff;
   border-bottom: 1px solid #ddd;
+  z-index: 999;                 /* content ke upar */
 }
 
 .mobile-menu a {
@@ -713,4 +717,5 @@ body {
     text-align: center;
   }
 }
+
 
