@@ -22,7 +22,6 @@
   /* ===== STOP EXTRA SCROLL AFTER FOOTER ===== */
 html, body {
   height: 100%;
-  overscroll-behavior-y: none;
 }
 
 
@@ -506,3 +505,4 @@ html, body {
     text-align: center;
   }
 }
+
